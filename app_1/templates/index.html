@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" name="submit">
+
+</form>
+<div class="container">
+    {% for d in data %}
+    <h4>{{ d.url }}</h4>
+    <h4>{{ d.created_at }}</h4>
+    <h4>{{ d.clicks }}</h4>
+
+    <h4><a href="{{d.slug}}"> {{ d.slug }}</a></h4>
+    {% endfor %}
+</div>
+
+</body>
+</html>
